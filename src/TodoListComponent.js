@@ -33,6 +33,6 @@ export default class TodoListComponent {
   }
 
   saveTodos() {
-    localStorage.setItem('todos', JSON.stringify(todoList.todos));
+    localStorage.setItem('todos', JSON.stringify(this.todoList.todos));
   }
 }

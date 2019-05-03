@@ -14,7 +14,7 @@ function eventLoop () {
     event.preventDefault();
   }
 
-  document.getElementById("todo_add").onclick = todoListComponent.add;
+  document.getElementById("todo_add").onclick = todoListComponent.add.bind(todoListComponent);
   document.getElementById("todo_input").addEventListener("keyup", event => keyup(event));
 }
 
