@@ -4,10 +4,10 @@ export default class TodoComponent {
   }
 
   render() {
-    const li = document.createElement("li");
-    const todo_text = document.createTextNode(this.todo.name);
+    const li = document.createElement('li');
+    const todoText = document.createTextNode(this.todo.name);
 
-    li.appendChild(todo_text);
+    li.appendChild(todoText);
     return li;
   }
 }

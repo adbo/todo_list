@@ -13,7 +13,7 @@ export default class TodoListComponent {
 
     this.todoList.add(todo);
     document.getElementById(this.todoTag).appendChild(todoComponent.render());
-    document.getElementById(this.todoInput).value = "";
+    document.getElementById(this.todoInput).value = '';
   }
 
   add() {
@@ -26,8 +26,8 @@ export default class TodoListComponent {
 
   loadTodos() {
     const storageTodos = JSON.parse(localStorage.getItem('todos'));
-    
-    if(storageTodos !== null) {
+
+    if (storageTodos !== null) {
       storageTodos.map(todo => this.addTodo(todo));
     }
   }

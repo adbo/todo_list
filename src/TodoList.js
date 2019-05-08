@@ -1,5 +1,5 @@
 export default class TodoList {
-  constructor(todos=[]) {
+  constructor(todos = []) {
     this.todos = todos;
   }
 
