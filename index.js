@@ -1,9 +1,9 @@
-import TodoList from './src/TodoList.js';
 import TodoListComponent from './src/TodoListComponent.js';
+import Repository from './src/Repository.js';
 
 function eventLoop() {
-  const todoList = new TodoList();
-  const todoListComponent = new TodoListComponent(todoList, 'todo_list', 'todo_input');
+  const repository = new Repository();
+  const todoListComponent = new TodoListComponent(repository, 'todo_list', 'todo_input');
 
   todoListComponent.loadTodos();
 

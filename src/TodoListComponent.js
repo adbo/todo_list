@@ -2,8 +2,8 @@ import Todo from './Todo.js';
 import TodoComponent from './TodoComponent.js';
 
 export default class TodoListComponent {
-  constructor(todoList, todoTag, todoInput) {
-    this.todoList = todoList;
+  constructor(repository, todoTag, todoInput) {
+    this.repository = repository;
     this.todoTag = todoTag;
     this.todoInput = todoInput;
   }
@@ -11,7 +11,7 @@ export default class TodoListComponent {
   addTodo(todo) {
     const todoComponent = new TodoComponent(todo);
 
-    this.todoList.add(todo);
+    this.repository.addTodo(todo);
     document.getElementById(this.todoTag).appendChild(todoComponent.render());
     document.getElementById(this.todoInput).value = '';
   }
@@ -21,18 +21,14 @@ export default class TodoListComponent {
     const newTodo = new Todo(name);
 
     this.addTodo(newTodo);
-    this.saveTodos();
+    this.repository.saveTodos();
   }
 
   loadTodos() {
-    const storageTodos = JSON.parse(localStorage.getItem('todos'));
+    const storageTodos = this.repository.loadTodos();
 
     if (storageTodos !== null) {
       storageTodos.map(todo => this.addTodo(todo));
     }
-  }
-
-  saveTodos() {
-    localStorage.setItem('todos', JSON.stringify(this.todoList.todos));
   }
 }
