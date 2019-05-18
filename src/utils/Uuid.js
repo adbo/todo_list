@@ -1,4 +1,4 @@
-export default genUuid = () => {
+const genUuid = () => {
   // returns a 36-character string in the form XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
   // where "X" is an "upper-case" hexadecimal digit [0-9A-F].
 
@@ -27,6 +27,8 @@ const toHex = (bytes) => {
 // reduce to single string 
 // add dashes after 6, 8, 10 and 12 bytes and add '0' in case of 1 character values
 const reduceWithDashes = (bytes) => {
-  return randomValues.reduce((sum, x, index) => sum
+  return bytes.reduce((sum, x, index) => sum
     + ([6, 8, 10, 12].includes(index) ? '-' : '') + (x.length === 1 ? '0' : '') + x, '');
 }
+
+export default genUuid;
