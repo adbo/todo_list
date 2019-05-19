@@ -1,3 +1,5 @@
+import Todo from './Todo.js';
+
 export default class Repository {
   constructor(todos = []) {
     this.todos = todos;
@@ -17,6 +19,11 @@ export default class Repository {
   }
 
   loadTodos() {
-    return JSON.parse(this.storage.getItem('todos'));
+    const storageTodos = JSON.parse(this.storage.getItem('todos'));
+    if (storageTodos !== null) {
+      storageTodos.map(todo => this.addTodo(Object.assign(new Todo, todo)));
+    }
+
+    return this.todos;
   }
 }

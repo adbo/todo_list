@@ -11,7 +11,6 @@ export default class TodoListComponent {
   addTodo(todo) {
     const todoComponent = new TodoComponent(todo);
 
-    this.repository.addTodo(todo);
     document.getElementById(this.todoTag).appendChild(todoComponent.render());
     document.getElementById(this.todoInput).value = '';
   }
@@ -21,6 +20,7 @@ export default class TodoListComponent {
     const newTodo = new Todo(name);
 
     this.addTodo(newTodo);
+    this.repository.addTodo(todo);
     this.repository.saveTodos();
   }
 

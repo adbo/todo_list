@@ -3,7 +3,7 @@ import Repository from './src/Repository.js';
 
 function eventLoop() {
   const repository = new Repository();
-  const todoListComponent = new TodoListComponent(repository, 'todo_list', 'todo_input');
+  const todoListComponent = new TodoListComponent(repository, 'todo-list', 'todo-input');
 
   todoListComponent.loadTodos();
 
@@ -16,8 +16,8 @@ function eventLoop() {
     return true;
   };
 
-  document.getElementById('todo_add').onclick = todoListComponent.add.bind(todoListComponent);
-  document.getElementById('todo_input').addEventListener('keyup', event => keyup(event));
+  document.getElementById('todo-add').onclick = todoListComponent.add.bind(todoListComponent);
+  document.getElementById('todo-input').addEventListener('keyup', event => keyup(event));
 }
 
 if (document.readyState !== 'loading') {
