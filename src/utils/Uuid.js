@@ -11,12 +11,12 @@ const setBytes = bytes => bytes
   .map((item, index) => (index === 8 ? (item & 0x3f) | 0x80 : item));
 
 // convert to Hex
-const toHex = bytes => bytes.map(x => x.toString(16).toUpperCase());
+const toHex = bytes => bytes.map(x => (x < 0x10 ? '0' : '') + x.toString(16).toUpperCase());
 
 // reduce to single string
 // add dashes after 6, 8, 10 and 12 bytes and add '0' in case of 1 character values
 const reduceWithDashes = bytes => bytes.reduce((sum, x, index) => sum
-  + ([6, 8, 10, 12].includes(index) ? '-' : '') + (x.length === 1 ? '0' : '') + x, '');
+  + ([4, 6, 8, 10].includes(index) ? '-' : '') + x, '');
 
 // returns a 36-character string in the form XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 // where "X" is an "upper-case" hexadecimal digit [0-9A-F].

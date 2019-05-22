@@ -20,7 +20,7 @@ export default class TodoListComponent {
     const newTodo = new Todo(name);
 
     this.addTodo(newTodo);
-    this.repository.addTodo(todo);
+    this.repository.addTodo(newTodo);
     this.repository.saveTodos();
   }
 
