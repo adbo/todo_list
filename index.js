@@ -1,11 +1,11 @@
 import TodoListComponent from './src/TodoListComponent.js';
 import Repository from './src/Repository.js';
 
-function eventLoop() {
+const eventLoop = () => {
   const todoListTag = 'todo-list';
   const todoInputTag = 'todo-input';
   const todoAddTag = 'todo-add';
-  
+
   const repository = new Repository();
   const todoListComponent = new TodoListComponent(repository, todoListTag, todoInputTag);
 
@@ -21,8 +21,8 @@ function eventLoop() {
   };
 
   document.getElementById(todoAddTag).onclick = todoListComponent.add.bind(todoListComponent);
-  document.getElementById(todoInputTag).addEventListener('keyup', event => keyup(event));
-}
+  document.getElementById(todoInputTag).addEventListener('keyup', keyup);
+};
 
 if (document.readyState !== 'loading') {
   eventLoop();

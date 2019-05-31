@@ -9,7 +9,7 @@ export default class TodoListComponent {
   }
 
   addTodo(todo) {
-    const todoComponent = new TodoComponent(todo);
+    const todoComponent = new TodoComponent(todo, this.repository);
 
     document.getElementById(this.todoTag).appendChild(todoComponent.render());
     document.getElementById(this.todoInput).value = '';

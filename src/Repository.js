@@ -7,7 +7,7 @@ export default class Repository {
   }
 
   addTodo(todo) {
-    this.todos.push(todo);
+    this.todos = [...this.todos.filter(item => item.uuid !== todo.uuid), todo];
   }
 
   getTodos() {
@@ -21,7 +21,7 @@ export default class Repository {
   loadTodos() {
     const storageTodos = JSON.parse(this.storage.getItem('todos'));
     if (storageTodos !== null) {
-      storageTodos.map(todo => this.addTodo(Object.assign(new Todo, todo)));
+      storageTodos.map(todo => this.addTodo(Object.assign(new Todo(), todo)));
     }
 
     return this.todos;

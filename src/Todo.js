@@ -11,7 +11,7 @@ export default class Todo {
     return this.done;
   }
 
-  setDone() {
+  toggle() {
     this.done = !this.done;
   }
 }
