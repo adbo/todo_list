@@ -15,7 +15,6 @@
     "rules": {
         "indent": ["error", 2],
         "linebreak-style": ["error", "windows"],
-        "import/extensions": ["error", "always"],
-        "no-unused-expressions": ["error", {"allowTernary": true}]
+        "import/extensions": ["error", "always"]
     }
 }
