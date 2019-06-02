@@ -10,3 +10,4 @@ v 1.0
 
 v 2.0
 - [ ] Adding multiple lists with custom names
+- [ ] Adding date to
