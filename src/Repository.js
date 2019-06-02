@@ -6,12 +6,15 @@ export default class Repository {
     this.storage = localStorage;
   }
 
-  addTodo(todo) {
+  addTodo(todo, save=true) {
     this.todos = [...this.todos.filter(item => item.uuid !== todo.uuid), todo];
+    if (save)
+      this.saveTodos();
   }
 
-  getTodos() {
-    return this.todos;
+  removeTodo(todo) {
+    this.todos = [...this.todos.filter(item => item.uuid !== todo.uuid)];
+    this.saveTodos();
   }
 
   saveTodos() {
@@ -21,7 +24,7 @@ export default class Repository {
   loadTodos() {
     const storageTodos = JSON.parse(this.storage.getItem('todos'));
     if (storageTodos !== null) {
-      storageTodos.map(todo => this.addTodo(Object.assign(new Todo(), todo)));
+      storageTodos.map(todo => this.addTodo(Object.assign(new Todo(), todo)), false);
     }
 
     return this.todos;

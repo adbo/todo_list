@@ -15,12 +15,12 @@ const eventLoop = () => {
     if (event.key !== 'Enter') {
       return false;
     }
-    todoListComponent.add();
+    todoListComponent.addInput();
     event.preventDefault();
     return true;
   };
 
-  document.getElementById(todoAddTag).onclick = todoListComponent.add.bind(todoListComponent);
+  document.getElementById(todoAddTag).onclick = todoListComponent.addInput.bind(todoListComponent);
   document.getElementById(todoInputTag).addEventListener('keyup', keyup);
 };
 

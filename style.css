@@ -1,3 +1,15 @@
 ul#todo-list li.done {
   text-decoration: line-through;
 }
+
+ul#todo-list li {
+  display: flex;
+  width: 10rem;
+  justify-content: space-between;
+}
+
+.remove-element {
+  width: 24px;
+  height: 24px;
+  background-image: url('static/img/baseline-delete_forever-24px.svg');
+}

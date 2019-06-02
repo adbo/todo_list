@@ -8,27 +8,45 @@ export default class TodoListComponent {
     this.todoInput = todoInput;
   }
 
-  addTodo(todo) {
-    const todoComponent = new TodoComponent(todo, this.repository);
+  _appendElement(todo) {
+    const todoComponent = new TodoComponent(todo, this);
 
     document.getElementById(this.todoTag).appendChild(todoComponent.render());
     document.getElementById(this.todoInput).value = '';
   }
 
-  add() {
+  _repositoryAdd(todo) {
+    this.repository.addTodo(todo);
+    this.repository.saveTodos();
+  }
+
+  _repositoryRemove(todo) {
+    this.repository.removeTodo(todo);
+    this.repository.saveTodos();
+  }
+
+  addInput() {
     const name = document.getElementById(this.todoInput).value;
     const newTodo = new Todo(name);
 
-    this.addTodo(newTodo);
-    this.repository.addTodo(newTodo);
-    this.repository.saveTodos();
+    this._appendElement(newTodo);
+    this._repositoryAdd(newTodo);
   }
 
   loadTodos() {
     const storageTodos = this.repository.loadTodos();
 
     if (storageTodos !== null) {
-      storageTodos.map(todo => this.addTodo(todo));
+      storageTodos.map(todo => this._appendElement(todo));
     }
+  }
+
+  removeElement(todoComponent) {
+    document.getElementById(this.todoTag).removeChild(todoComponent.li);
+    this._repositoryRemove(todoComponent.todo);
+  }
+
+  toggle(todoComponent) {
+    this._repositoryAdd(todoComponent.todo);
   }
 }
