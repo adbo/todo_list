@@ -1,11 +1,22 @@
+html, body {
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
 body {
-  width: 300px;
-  align-content: center;
+  display: table-cell;
 }
 
 ul#todo-list {
   font-family: Roboto,sans-serif;
   font-size: 1rem;
+  font-weight: bold; 
+  padding: 0px 24px;
+  width: 300px;
 }
 
 ul#todo-list li.done {
@@ -14,7 +25,9 @@ ul#todo-list li.done {
 
 ul#todo-list li {
   display: flex;
-  width: 10rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 48px;
   justify-content: space-between;
 }
@@ -31,7 +44,13 @@ input#todo-input:focus {
   border-bottom: 2px solid #2286c3;
 }
 
-.remove-element {
+.toggle-todo {
+  width: 24px;
+  height: 24px;
+  background-image: url('static/img/baseline-radio_button_unchecked-24px.svg');
+}
+
+ul#todo-list li:hover .remove-todo {
   width: 24px;
   height: 24px;
   background-image: url('static/img/baseline-delete_forever-24px.svg');

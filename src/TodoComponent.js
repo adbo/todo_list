@@ -7,10 +7,13 @@ export default class TodoComponent {
 
   render() {
     const todoText = document.createTextNode(this.todo.name);
+    const toggleTodo = document.createElement('div');
     const removeTodo = document.createElement('div');
 
-    removeTodo.classList.add('remove-element');
+    toggleTodo.classList.add('toggle-todo')
+    removeTodo.classList.add('remove-todo');
 
+    this.li.appendChild(toggleTodo);
     this.li.appendChild(todoText);
     this.li.appendChild(removeTodo);
     if (this.todo.isDone()) {
