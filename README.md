@@ -5,8 +5,9 @@ v 1.0
 - [x] Saving list to localstorage
 - [x] Marking task as done
 - [x] Removing task from the list
-- [ ] Styling app
+- [x] Styling app
 - [ ] Writing some unit tests
+- [ ] Adding validation
 
 v 2.0
 - [ ] Adding multiple lists with custom names
