@@ -6,12 +6,15 @@ const eventLoop = () => {
   const todoInputTag = 'todo-input';
   const todoAddTag = 'todo-add';
 
+  const todoAddElement = document.getElementById(todoAddTag);
+  const todoInputElement = document.getElementById(todoInputTag);
+
   const repository = new Repository();
   const todoListComponent = new TodoListComponent(repository, todoListTag, todoInputTag);
 
   todoListComponent.loadTodos();
 
-  const keyup = (event) => {
+  const keyup = event => {
     if (event.key !== 'Enter') {
       return false;
     }
@@ -20,8 +23,27 @@ const eventLoop = () => {
     return true;
   };
 
-  document.getElementById(todoAddTag).onclick = todoListComponent.addInput.bind(todoListComponent);
-  document.getElementById(todoInputTag).addEventListener('keyup', keyup);
+  todoAddElement.onclick = () => {
+    if(todoAddElement.classList.contains('add-active')) {
+      todoInputElement.classList.remove('input-active');
+      todoAddElement.classList.add('add-animate-undo');
+    } else {
+      todoAddElement.classList.add('add-animate');
+    }
+  }
+
+  todoAddElement.addEventListener('animationend', () => {
+    if(todoAddElement.classList.contains('add-active')) {
+      todoAddElement.classList.remove('add-active');
+      todoAddElement.classList.remove('add-animate-undo');
+    } else {
+      todoInputElement.classList.add('input-active');
+      todoAddElement.classList.replace('add-animate', 'add-active');
+      todoInputElement.focus();
+    }
+  });
+
+  todoInputElement.addEventListener('keyup', keyup);
 };
 
 if (document.readyState !== 'loading') {

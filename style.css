@@ -27,21 +27,9 @@ ul#todo-list li {
   height: 3rem;
 }
 
-input#todo-input {
-  width: 80%;
-  height: 3rem;
-  border: none;
-  border-bottom: 1px solid #64b5f6;
-  outline: 0;
-}
-
-input#todo-input:focus {
-  border-bottom: 2px solid #2286c3;
-}
-
 .toggle-todo {
-  width: 24px;
-  height: 24px;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
   margin-right: 1rem;
   background-image: url('static/img/baseline-radio_button_unchecked-24px.svg');
 }
@@ -63,4 +51,62 @@ ul#todo-list li:hover .remove-todo {
   height: 24px;
   margin-left: auto;
   background-image: url('static/img/baseline-delete_forever-24px.svg');
+}
+
+@keyframes spin {
+  from {transform:translateX(9.5rem) rotate(0deg);}
+  to {transform:translate(19rem) rotate(135deg);}
+}
+
+@keyframes spin-undo {
+  from {transform:translate(19rem) rotate(135deg);}
+  to {transform:translateX(9.5rem) rotate(0deg);}
+}
+
+#form-input {
+  display: flex;
+  height: 48px;
+}
+
+input#todo-input {
+  font-size: 1.5rem;
+  padding: 0;
+  width: 0;
+  height: 48px;
+  border: none;
+  border-bottom: 1px solid #64b5f6;
+  outline: 0;
+}
+
+input#todo-input:focus {
+  border-bottom: 2px solid #2286c3;
+}
+
+#todo-add {
+  min-width: 48px;
+  min-height: 48px;
+  transform: translateX(9.5rem) rotate(0deg);
+  fill: #2286c3;
+  background-image: url('static/img/baseline-add_circle-24px.svg');
+  background-size: contain;
+}
+
+input#todo-input.input-active {
+  width: 19rem;
+}
+
+#todo-add.add-animate {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+#todo-add.add-animate-undo {
+  animation-name: spin-undo;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+#todo-add.add-active {
+  transform: rotate(135deg);
 }
