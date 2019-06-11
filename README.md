@@ -1,7 +1,6 @@
 ### Todo List in vanilla JS.
 
 ![Screenshot](1.png)
-![Screenshot](2.png)
 
 v 1.0
 - [x] Adding new task
