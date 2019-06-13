@@ -8,8 +8,9 @@ export default class Repository {
 
   addTodo(todo, save=true) {
     this.todos = [...this.todos.filter(item => item.uuid !== todo.uuid), todo];
-    if (save)
+    if (save) {
       this.saveTodos();
+    }
   }
 
   removeTodo(todo) {
