@@ -29,11 +29,7 @@ export default class TodoComponent {
   }
 
   toggle() {
-    if (this.todo.isDone()) {
-      this.li.classList.remove('done');
-    } else {
-      this.li.classList.add('done');
-    }
+    this.li.classList.toggle('done');
     this.todo.toggle();
     this.todoList.toggle(this);
   }

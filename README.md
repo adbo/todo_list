@@ -1,5 +1,7 @@
 ### Todo List in vanilla JS.
 
+https://adbo.github.io/todo_list/
+
 ![Screenshot](screenshot.png)
 
 v 1.0
