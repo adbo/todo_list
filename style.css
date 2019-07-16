@@ -54,13 +54,13 @@ ul#todo-list li:hover .remove-todo {
 }
 
 @keyframes spin {
-  from {transform:translateX(9.5rem) rotate(0deg);}
-  to {transform:translate(19rem) rotate(135deg);}
+  from {transform:translateX(9.5rem) rotate(0deg); background-color: #2286c3;}
+  to {transform:translate(19rem) rotate(135deg); background-color: red;}
 }
 
 @keyframes spin-undo {
-  from {transform:translate(19rem) rotate(135deg);}
-  to {transform:translateX(9.5rem) rotate(0deg);}
+  from {transform:translate(19rem) rotate(135deg); background-color: red;}
+  to {transform:translateX(9.5rem) rotate(0deg); background-color: #2286c3;}
 }
 
 #form-input {
@@ -86,9 +86,11 @@ input#todo-input:focus {
   min-width: 48px;
   min-height: 48px;
   transform: translateX(9.5rem) rotate(0deg);
-  fill: #2286c3;
-  background-image: url('static/img/baseline-add_circle-24px.svg');
-  background-size: contain;
+  mask-image: url('static/img/baseline-add_circle-24px.svg');
+  -webkit-mask-image: url('static/img/baseline-add_circle-24px.svg');
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #2286c3;
 }
 
 input#todo-input.input-active {
@@ -109,4 +111,5 @@ input#todo-input.input-active {
 
 #todo-add.add-active {
   transform: rotate(135deg);
+  background-color: red;
 }

@@ -5,6 +5,10 @@ const eventLoop = () => {
   const todoListTag = 'todo-list';
   const todoInputTag = 'todo-input';
   const todoAddTag = 'todo-add';
+  const addActiveClass = 'add-active';
+  const inputActiveClass = 'input-active';
+  const addAnimateUndoClass = 'add-animate-undo';
+  const addAnimateClass = 'add-animate';
 
   const todoAddElement = document.getElementById(todoAddTag);
   const todoInputElement = document.getElementById(todoInputTag);
@@ -24,21 +28,21 @@ const eventLoop = () => {
   };
 
   todoAddElement.onclick = () => {
-    if(todoAddElement.classList.contains('add-active')) {
-      todoInputElement.classList.remove('input-active');
-      todoAddElement.classList.add('add-animate-undo');
+    if(todoAddElement.classList.contains(addActiveClass)) {
+      todoInputElement.classList.remove(inputActiveClass);
+      todoAddElement.classList.add(addAnimateUndoClass);
     } else {
-      todoAddElement.classList.add('add-animate');
+      todoAddElement.classList.add(addAnimateClass);
     }
   }
 
   todoAddElement.addEventListener('animationend', () => {
-    if(todoAddElement.classList.contains('add-active')) {
-      todoAddElement.classList.remove('add-active');
-      todoAddElement.classList.remove('add-animate-undo');
+    if(todoAddElement.classList.contains(addActiveClass)) {
+      todoAddElement.classList.remove(addActiveClass);
+      todoAddElement.classList.remove(addAnimateUndoClass);
     } else {
-      todoInputElement.classList.add('input-active');
-      todoAddElement.classList.replace('add-animate', 'add-active');
+      todoInputElement.classList.add(inputActiveClass);
+      todoAddElement.classList.replace(addAnimateClass, addActiveClass);
       todoInputElement.focus();
     }
   });
