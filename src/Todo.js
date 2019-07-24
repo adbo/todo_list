@@ -7,10 +7,6 @@ export default class Todo {
     this.uuid = uuid;
   }
 
-  isDone() {
-    return this.done;
-  }
-
   toggle() {
     this.done = !this.done;
   }

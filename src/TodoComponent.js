@@ -19,7 +19,7 @@ export default class TodoComponent {
     this.li.appendChild(textTodo);
     textTodo.appendChild(nameTodo);
     this.li.appendChild(removeTodo);
-    if (this.todo.isDone()) {
+    if (this.todo.done) {
       this.li.classList.add('done');
     }
     this.li.onclick = this.toggle.bind(this);
