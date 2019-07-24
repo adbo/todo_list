@@ -35,7 +35,7 @@ export default class TodoComponent {
   }
 
   remove(event) {
-    this.todoList.removeElement(this);
+    this.todoList.remove(this);
     event.stopPropagation();
   }
 }
