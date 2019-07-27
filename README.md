@@ -12,7 +12,3 @@ v 1.0
 - [x] Styling app
 - [ ] Writing some unit tests
 - [ ] Adding validation
-
-v 2.0
-- [ ] Adding multiple lists with custom names
-- [ ] Adding date to
